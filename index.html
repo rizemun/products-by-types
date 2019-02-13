@@ -5,6 +5,7 @@
     <title>Товары</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="sale"></div>
@@ -14,6 +15,21 @@
 <!-- Ваш шаблон. Код можно менять тлько внутри этого тега <script>,
 остальной HTML трогать нельзя. -->
 <script type="text/template" id="productTemplate">
+
+    <div class="product-type">
+        <div class="product-type__title"><%= title %></div>
+        <% products.forEach( product => { %>
+        <div class="product-type__product  product" data-price="<%= product.price %>&#8381;">
+            <div class="product__image-wrap">
+                <img src="media/products/<%= product.pic %>" class="product__image">
+            </div>
+            <div class="product__description"><%= product.name %></div>
+            <div class="product__price">Цена:<%= product.price %>&#8381;</div>
+        </div>
+        <% }) %>
+    </div>
+
+
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
